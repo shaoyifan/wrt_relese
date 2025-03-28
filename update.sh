@@ -24,7 +24,7 @@ FEEDS_CONF="feeds.conf.default"
 GOLANG_REPO="https://github.com/sbwml/packages_lang_golang"
 GOLANG_BRANCH="24.x"
 THEME_SET="argon"
-LAN_ADDR="192.168.1.1"
+LAN_ADDR="10.0.0.1"
 
 clone_repo() {
     if [[ ! -d $BUILD_DIR ]]; then
@@ -453,7 +453,7 @@ update_nss_pbuf_performance() {
 set_build_signature() {
     local file="$BUILD_DIR/feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js"
     if [ -d "$(dirname "$file")" ] && [ -f $file ]; then
-        sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ build by ZqinKing')/g" "$file"
+        sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ build by Shaoyf')/g" "$file"
     fi
 }
 
@@ -754,20 +754,20 @@ main() {
     update_tcping
     add_ax6600_led
     set_custom_task
-    update_pw_ha_chk
+    # update_pw_ha_chk
     install_opkg_distfeeds
     update_nss_pbuf_performance
     set_build_signature
-    fix_compile_vlmcsd
+    # fix_compile_vlmcsd
     update_nss_diag
     update_menu_location
     fix_compile_coremark
     update_dnsmasq_conf
     # update_lucky
     add_backup_info_to_sysupgrade
-    optimize_smartDNS
+    # optimize_smartDNS
     update_mosdns_deconfig
-    fix_quickstart
+    # fix_quickstart
     update_oaf_deconfig
     add_timecontrol
     add_gecoosac
